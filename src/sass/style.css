@@ -1,0 +1,148 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+}
+
+body {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background-color: rebeccapurple;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+a {
+  text-decoration: none;
+}
+
+#payment-form {
+  margin-top: 5rem;
+  height: 70vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  max-width: 35rem;
+  position: relative;
+}
+
+.payment__form {
+  background-color: #fff;
+  position: relative;
+  width: 80%;
+  height: 90%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.payment__form__inputs {
+  text-align: center;
+}
+
+.payment__form__inputs input {
+  width: 90%;
+  padding: 0.8rem;
+  margin-bottom: 2rem;
+}
+
+.payment__form__inputs input:nth-child(5) {
+  width: 31%;
+  padding: 1.2rem;
+}
+
+.payment__form__inputs select {
+  padding: 1.2rem;
+  width: 25%;
+  margin-right: 0.8rem;
+}
+
+.payment__form__inputs button {
+  width: 90%;
+  padding: 1.2rem;
+  border-radius: 0.6rem;
+  -ms-grid-column-align: center;
+      justify-self: center;
+  background-color: #199223;
+}
+
+.payment__form__card {
+  position: relative;
+  height: 35%;
+  margin-top: -10rem;
+  margin-bottom: 5rem;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+          box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.payment__form__card__front {
+  position: absolute;
+  height: 100%;
+  width: 24rem;
+  border-radius: 1rem;
+  background: center center/cover url("https://images.unsplash.com/photo-1611187401884-254eb9d99ed6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80");
+}
+
+.payment__form__card__front__inputs {
+  padding: 1rem;
+}
+
+.payment__form__card__front__inputs input {
+  width: 60%;
+  background-color: transparent;
+  font-weight: bold;
+  color: #fff;
+  font-size: 1rem;
+  padding: 0.5rem;
+}
+
+.payment__form__card__front__cname input {
+  width: 70%;
+  background-color: transparent;
+  font-weight: bold;
+  color: #fff;
+  font-size: 1rem;
+  padding: 0.5rem;
+}
+
+.payment__form__card__front__expire input {
+  width: 20%;
+  background-color: transparent;
+  font-weight: bold;
+  color: #fff;
+  font-size: 1rem;
+  padding: 0.3rem;
+}
+
+.payment__form__card__back {
+  height: 100%;
+  background: center center/cover url("https://images.unsplash.com/photo-1586974710160-55f48f417990?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1174&q=80");
+  width: 24rem;
+}
+/*# sourceMappingURL=style.css.map */

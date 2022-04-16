@@ -1,0 +1,45 @@
+#payment-form {
+  margin-top: 5rem;
+  height: 70vh;
+  // background-color: black;
+  @include flexCenter;
+  max-width: 35rem;
+  position: relative;
+}
+.payment__form {
+  background-color: #fff;
+  position: relative;
+  width: 80%;
+  height: 90%;
+  // padding-left: 3.3rem;
+  @include flexCenter;
+  flex-direction: column;
+
+  &__inputs {
+    text-align: center;
+    input {
+      width: 90%;
+      padding: 0.8rem;
+      margin-bottom: 2rem;
+
+      &:nth-child(5) {
+        width: 31%;
+        padding: 1.2rem;
+      }
+    }
+
+    select {
+      padding: 1.2rem;
+      width: 25%;
+      margin-right: 0.8rem;
+    }
+
+    button {
+      width: 90%;
+      padding: 1.2rem;
+      border-radius: 0.6rem;
+      justify-self: center;
+      background-color: #199223;
+    }
+  }
+}

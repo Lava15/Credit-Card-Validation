@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Payment Validation</title>
+    <link rel="stylesheet" href="./src/sass/style.css" />
+  </head>
+  <body>
+    <div id="payment-form">
+      <form action="" class="payment__form">
+        <!-- CARD -->
+        <div class="payment__form__card">
+          <div class="payment__form__card__front">
+            <h1>BANKNAME</h1>
+
+            <span class="payment__form__card__front__inputs">
+              <input
+                id="top-input"
+                type="tel"
+                pattern="[0-9]{16}"
+                maxlength="16"
+                autocomplete="off"
+                required
+                placeholder="xxxx xxxx xxxx xxxx"
+              />
+
+              />
+            </span>
+            <!-- CARD HOLDER -->
+            <div class="payment__form__card__front__cname">
+              <label for="card-name"> <h2>Card Holder</h2> </label>
+              <input type="text" id="full-name-top" maxlength="20" />
+            </div>
+
+            <!-- CARD EXPIRATION -->
+
+            <span class="payment__form__card__front__expire">
+              <label for="card-exp"><h2>Expires</h2></label>
+              <input
+                type="tel"
+                pattern="[0-9]{2}/[0=9]{4}"
+                maxlength="6"
+                id="exp-month-top"
+              />
+              <input id="exp-year-top" type="text" maxlength="4" />
+            </span>
+          </div>
+
+          <div class="payment__form__card__back">Credit Card back</div>
+        </div>
+
+        <!-- CVV -->
+        <input id="cvv-card-top" type="text" placeholder="CVV" maxlength="4" />
+
+        <!-- CARD -->
+
+        <!-- ------------------------------------------------------------------------------- -->
+
+        <!-- INPUTS -->
+        <div class="payment__form__inputs">
+          <input
+            id="digits"
+            type="tel"
+            pattern="[0-9]{16}"
+            maxlength="16"
+            autocomplete="off"
+            required
+          />
+          <input
+            type="text"
+            autocomplete="off"
+            required
+            id="full-name"
+            maxlength="20"
+          />
+          <select name="" id="exp-month">
+            <option value="01">01</option>
+            <option value="02">02</option>
+            <option value="03">03</option>
+            <option value="04">04</option>
+            <option value="05">05</option>
+            <option value="06">06</option>
+            <option value="07">07</option>
+            <option value="08">08</option>
+            <option value="09">09</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+          </select>
+
+          <select name="" id="exp-year">
+            <option value="2022">2022</option>
+            <option value="2023">2023</option>
+            <option value="2024">2024</option>
+            <option value="2025">2025</option>
+            <option value="2026">2026</option>
+            <option value="2027">2027</option>
+            <option value="2028">2028</option>
+            <option value="2029">2029</option>
+            <option value="2030">2030</option>
+          </select>
+
+          <input
+            id="cvv-card"
+            type="text"
+            placeholder="CVV"
+            maxlength="4"
+            required
+            type="tel"
+            pattern="[0-9]{4}"
+          />
+
+          <button>Submit</button>
+          <!-- INPUTS -->
+        </div>
+      </form>
+    </div>
+
+    <script src="./src/index.js"></script>
+  </body>
+</html>

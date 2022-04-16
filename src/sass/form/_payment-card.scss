@@ -1,0 +1,61 @@
+.payment__form__card {
+  position: relative;
+  height: 35%;
+  margin-top: -10rem;
+  margin-bottom: 5rem;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+
+  &__front {
+    position: absolute;
+    height: 100%;
+    width: 24rem;
+    border-radius: 1rem;
+    background: center center/cover
+      url("https://images.unsplash.com/photo-1611187401884-254eb9d99ed6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80");
+
+    &__inputs {
+      padding: 1rem;
+
+      input {
+        width: 60%;
+        background-color: transparent;
+        font-weight: bold;
+        color: #fff;
+        font-size: 1rem;
+        padding: 0.5rem;
+      }
+    }
+
+    &__cname {
+      input {
+        width: 70%;
+        background-color: transparent;
+        font-weight: bold;
+        color: #fff;
+        font-size: 1rem;
+        padding: 0.5rem;
+      }
+    }
+
+    &__expire {
+      input {
+        width: 20%;
+        background-color: transparent;
+        font-weight: bold;
+        color: #fff;
+        font-size: 1rem;
+        padding: 0.3rem;
+      }
+    }
+  }
+
+  &__back {
+    height: 100%;
+    background: center center/cover
+      url("https://images.unsplash.com/photo-1586974710160-55f48f417990?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1174&q=80");
+    // border-radius: 1rem;
+    width: 24rem;
+  }
+}
