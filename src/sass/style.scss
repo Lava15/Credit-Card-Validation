@@ -9,6 +9,7 @@
 body {
   box-sizing: border-box;
   background-color: rebeccapurple;
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -17,7 +18,8 @@ body {
 a {
   text-decoration: none;
 }
-
+@import "./vars";
 @import "./mixins";
 @import "./form/container";
 @import "./form/payment-card";
+@import "./form/errors";

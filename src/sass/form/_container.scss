@@ -1,7 +1,6 @@
 #payment-form {
-  margin-top: 5rem;
-  height: 70vh;
-  // background-color: black;
+  margin-top: 10rem;
+  height: 40rem;
   @include flexCenter;
   max-width: 35rem;
   position: relative;
@@ -9,29 +8,37 @@
 .payment__form {
   background-color: #fff;
   position: relative;
-  width: 80%;
-  height: 90%;
-  // padding-left: 3.3rem;
+  max-width: 100%;
+  height: 100%;
   @include flexCenter;
   flex-direction: column;
+  font-size: 1rem;
 
   &__inputs {
     text-align: center;
+
     input {
+      font-size: 1rem;
+      font-weight: bold;
       width: 90%;
       padding: 0.8rem;
       margin-bottom: 2rem;
 
-      &:nth-child(5) {
+      &:nth-child(7) {
         width: 31%;
         padding: 1.2rem;
+        margin-bottom: 1.3rem;
+        text-align: center;
       }
     }
 
     select {
       padding: 1.2rem;
-      width: 25%;
+      width: 26%;
       margin-right: 0.8rem;
+      margin-bottom: 1.3rem;
+      font-size: 1rem;
+      font-weight: bold;
     }
 
     button {
@@ -39,7 +46,12 @@
       padding: 1.2rem;
       border-radius: 0.6rem;
       justify-self: center;
-      background-color: #199223;
+      background-color: #1b51a7;
+      color: #fff;
+      font-weight: bold;
+      font-size: 1.5rem;
+      border: none;
+      @include boxShadow;
     }
   }
 }

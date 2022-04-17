@@ -11,6 +11,7 @@ body {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   background-color: rebeccapurple;
+  height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -27,8 +28,8 @@ a {
 }
 
 #payment-form {
-  margin-top: 5rem;
-  height: 70vh;
+  margin-top: 10rem;
+  height: 40rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -45,8 +46,8 @@ a {
 .payment__form {
   background-color: #fff;
   position: relative;
-  width: 80%;
-  height: 90%;
+  max-width: 100%;
+  height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -60,6 +61,7 @@ a {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  font-size: 1rem;
 }
 
 .payment__form__inputs {
@@ -67,20 +69,27 @@ a {
 }
 
 .payment__form__inputs input {
+  font-size: 1rem;
+  font-weight: bold;
   width: 90%;
   padding: 0.8rem;
   margin-bottom: 2rem;
 }
 
-.payment__form__inputs input:nth-child(5) {
+.payment__form__inputs input:nth-child(7) {
   width: 31%;
   padding: 1.2rem;
+  margin-bottom: 1.3rem;
+  text-align: center;
 }
 
 .payment__form__inputs select {
   padding: 1.2rem;
-  width: 25%;
+  width: 26%;
   margin-right: 0.8rem;
+  margin-bottom: 1.3rem;
+  font-size: 1rem;
+  font-weight: bold;
 }
 
 .payment__form__inputs button {
@@ -89,13 +98,20 @@ a {
   border-radius: 0.6rem;
   -ms-grid-column-align: center;
       justify-self: center;
-  background-color: #199223;
+  background-color: #1b51a7;
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.5rem;
+  border: none;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+          box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
 .payment__form__card {
+  z-index: 1;
   position: relative;
-  height: 35%;
-  margin-top: -10rem;
+  height: 40%;
+  margin-top: -15rem;
   margin-bottom: 5rem;
   -webkit-box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
           box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
@@ -106,43 +122,85 @@ a {
   height: 100%;
   width: 24rem;
   border-radius: 1rem;
-  background: center center/cover url("https://images.unsplash.com/photo-1611187401884-254eb9d99ed6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80");
+  background: #03001e;
+  background: -webkit-gradient(linear, left top, left bottom, from(#fdeff9), color-stop(#ec38bc), color-stop(#7303c0), to(#03001e));
+  background: linear-gradient(to bottom, #fdeff9, #ec38bc, #7303c0, #03001e);
+  overflow: visible;
 }
 
-.payment__form__card__front__inputs {
-  padding: 1rem;
+.payment__form__card__front input {
+  margin-left: 1rem;
+  background-color: transparent;
+  font-weight: bold;
+  color: #fff;
+  font-size: 1rem;
+  outline: none;
+  border-radius: 0.4rem;
+  border-color: 0.2rem solid #110d4f;
+  padding: 0.5rem;
+}
+
+.payment__form__card__front input::-webkit-input-placeholder {
+  color: inherit;
+}
+
+.payment__form__card__front input:-ms-input-placeholder {
+  color: inherit;
+}
+
+.payment__form__card__front input::-ms-input-placeholder {
+  color: inherit;
+}
+
+.payment__form__card__front input::placeholder {
+  color: inherit;
+}
+
+.payment__form__card__front h1,
+.payment__form__card__front h2 {
+  margin: 0.2rem 0.6rem;
+  color: #2d2d2d;
+  font-weight: bold;
 }
 
 .payment__form__card__front__inputs input {
   width: 60%;
-  background-color: transparent;
-  font-weight: bold;
-  color: #fff;
-  font-size: 1rem;
-  padding: 0.5rem;
 }
 
 .payment__form__card__front__cname input {
-  width: 70%;
-  background-color: transparent;
-  font-weight: bold;
-  color: #fff;
-  font-size: 1rem;
-  padding: 0.5rem;
+  width: 60%;
 }
 
 .payment__form__card__front__expire input {
-  width: 20%;
-  background-color: transparent;
-  font-weight: bold;
-  color: #fff;
-  font-size: 1rem;
-  padding: 0.3rem;
+  width: 17%;
 }
 
 .payment__form__card__back {
   height: 100%;
-  background: center center/cover url("https://images.unsplash.com/photo-1586974710160-55f48f417990?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1174&q=80");
+  background: #007991;
+  background: -webkit-gradient(linear, left top, right top, from(#78ffd6), to(#007991));
+  background: linear-gradient(to right, #78ffd6, #007991);
   width: 24rem;
+}
+
+#cvv-card-top {
+  width: 15%;
+  margin-left: 4rem;
+}
+
+#digits-error,
+#cname-error {
+  color: #8e0101;
+  margin-bottom: 1.5rem;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+#cvv-error {
+  color: #8e0101;
+  margin: 0 3.2rem 1.5rem 0;
+  font-weight: bold;
+  text-align: end;
+  font-size: 1rem;
 }
 /*# sourceMappingURL=style.css.map */

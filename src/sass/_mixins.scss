@@ -3,3 +3,27 @@
   justify-content: center;
   align-items: center;
 }
+
+@mixin frontCardBg {
+  background: #03001e;
+  background: -webkit-linear-gradient(
+    to bottom,
+    #fdeff9,
+    #ec38bc,
+    #7303c0,
+    #03001e
+  );
+  background: linear-gradient(to bottom, #fdeff9, #ec38bc, #7303c0, #03001e);
+}
+
+@mixin backCardBg {
+  background: #007991;
+  background: -webkit-linear-gradient(to right, #78ffd6, #007991);
+  background: linear-gradient(to right, #78ffd6, #007991);
+}
+
+@mixin boxShadow {
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}

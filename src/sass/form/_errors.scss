@@ -1,0 +1,15 @@
+#digits-error,
+#cname-error {
+  color: $darkRed;
+  margin-bottom: 1.5rem;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+#cvv-error {
+  color: $darkRed;
+  margin: 0 3.2rem 1.5rem 0;
+  font-weight: bold;
+  text-align: end;
+  font-size: 1rem;
+}
