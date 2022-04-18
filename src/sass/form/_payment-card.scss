@@ -5,6 +5,7 @@
   margin-top: -15rem;
   margin-bottom: 5rem;
   @include boxShadow;
+  overflow: hidden;
 
   &__front {
     position: absolute;
@@ -15,15 +16,21 @@
     overflow: visible;
     //
     input {
-      margin-left: 1rem;
+      margin-left: 2rem;
       background-color: transparent;
       font-weight: bold;
-      color: #fff;
+      color: $white;
       font-size: 1rem;
       outline: none;
       border-radius: 0.4rem;
-      border-color: 0.2rem solid #110d4f;
       padding: 0.5rem;
+
+      &:focus {
+        border: 0.2rem solid $lightGreen;
+        background-color: $white;
+        color: $darkGray;
+        @include boxShadow;
+      }
 
       &::placeholder {
         color: inherit;
@@ -31,11 +38,11 @@
     }
     //
 
-    h1,
     h2 {
       margin: 0.2rem 0.6rem;
-      color: #2d2d2d;
+      color: #d0d0d0;
       font-weight: bold;
+      text-align: center;
     }
 
     &__inputs {
@@ -44,15 +51,47 @@
       }
     }
 
+    &__images {
+      position: relative;
+      // overflow: hidden;
+      img {
+        overflow: hidden;
+        position: absolute;
+        bottom: 0;
+        right: 2rem;
+        width: 4rem;
+        height: 2.7rem;
+        background-color: transparent;
+      }
+    }
+
+    &__chip {
+      img {
+        margin: 0.8rem 2rem;
+        width: 3.4rem;
+        height: 2.3rem;
+        background-color: transparent;
+      }
+    }
     &__cname {
+      width: 75%;
       input {
-        width: 60%;
+        width: 80%;
       }
     }
 
     &__expire {
+      width: 90%;
+      margin: 0.5rem 0 0.5rem 0;
       input {
-        width: 17%;
+        width: 20%;
+        margin-left: 0;
+        border: none;
+        text-align: center;
+      }
+
+      label {
+        margin-left: 2rem;
       }
     }
   }
@@ -65,8 +104,6 @@
 }
 
 #cvv-card-top {
-  width: 15%;
-
-  margin-left: 4rem;
+  margin-left: 1.5rem;
   // display: none ;
 }

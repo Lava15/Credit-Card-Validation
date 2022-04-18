@@ -5,21 +5,15 @@
 }
 
 @mixin frontCardBg {
-  background: #03001e;
-  background: -webkit-linear-gradient(
-    to bottom,
-    #fdeff9,
-    #ec38bc,
-    #7303c0,
-    #03001e
-  );
-  background: linear-gradient(to bottom, #fdeff9, #ec38bc, #7303c0, #03001e);
+  background: #bdc3c7;
+  background: -webkit-linear-gradient(to right, #2c3e50, #bdc3c7);
+  background: linear-gradient(to right, #2c3e50, #bdc3c7);
 }
 
 @mixin backCardBg {
-  background: #007991;
-  background: -webkit-linear-gradient(to right, #78ffd6, #007991);
-  background: linear-gradient(to right, #78ffd6, #007991);
+  background: #16222a;
+  background: -webkit-linear-gradient(to right, #3a6073, #16222a);
+  background: linear-gradient(to right, #3a6073, #16222a);
 }
 
 @mixin boxShadow {

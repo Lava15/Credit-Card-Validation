@@ -6,7 +6,7 @@
   position: relative;
 }
 .payment__form {
-  background-color: #fff;
+  background-color: $white;
   position: relative;
   max-width: 100%;
   height: 100%;
@@ -24,6 +24,10 @@
       padding: 0.8rem;
       margin-bottom: 2rem;
 
+      &:focus {
+        @include boxShadow;
+      }
+
       &:nth-child(7) {
         width: 31%;
         padding: 1.2rem;
@@ -39,6 +43,10 @@
       margin-bottom: 1.3rem;
       font-size: 1rem;
       font-weight: bold;
+      &:focus {
+        @include boxShadow;
+        background-color: $white;
+      }
     }
 
     button {
@@ -46,12 +54,18 @@
       padding: 1.2rem;
       border-radius: 0.6rem;
       justify-self: center;
-      background-color: #1b51a7;
-      color: #fff;
+      background-color: $darkBlue;
+      color: $white;
       font-weight: bold;
       font-size: 1.5rem;
       border: none;
       @include boxShadow;
+
+      &:focus {
+        background-color: $lightGreen;
+        color: $darkGray;
+        @include boxShadow;
+      }
     }
   }
 }

@@ -27,6 +27,14 @@ a {
   text-decoration: none;
 }
 
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
 #payment-form {
   margin-top: 10rem;
   height: 40rem;
@@ -76,6 +84,11 @@ a {
   margin-bottom: 2rem;
 }
 
+.payment__form__inputs input:focus {
+  -webkit-box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+          box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
 .payment__form__inputs input:nth-child(7) {
   width: 31%;
   padding: 1.2rem;
@@ -90,6 +103,12 @@ a {
   margin-bottom: 1.3rem;
   font-size: 1rem;
   font-weight: bold;
+}
+
+.payment__form__inputs select:focus {
+  -webkit-box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+          box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  background-color: #fff;
 }
 
 .payment__form__inputs button {
@@ -107,6 +126,13 @@ a {
           box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
+.payment__form__inputs button:focus {
+  background-color: #91ec91;
+  color: #1c1b1b;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+          box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
 .payment__form__card {
   z-index: 1;
   position: relative;
@@ -115,6 +141,7 @@ a {
   margin-bottom: 5rem;
   -webkit-box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
           box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  overflow: hidden;
 }
 
 .payment__form__card__front {
@@ -122,22 +149,29 @@ a {
   height: 100%;
   width: 24rem;
   border-radius: 1rem;
-  background: #03001e;
-  background: -webkit-gradient(linear, left top, left bottom, from(#fdeff9), color-stop(#ec38bc), color-stop(#7303c0), to(#03001e));
-  background: linear-gradient(to bottom, #fdeff9, #ec38bc, #7303c0, #03001e);
+  background: #bdc3c7;
+  background: -webkit-gradient(linear, left top, right top, from(#2c3e50), to(#bdc3c7));
+  background: linear-gradient(to right, #2c3e50, #bdc3c7);
   overflow: visible;
 }
 
 .payment__form__card__front input {
-  margin-left: 1rem;
+  margin-left: 2rem;
   background-color: transparent;
   font-weight: bold;
   color: #fff;
   font-size: 1rem;
   outline: none;
   border-radius: 0.4rem;
-  border-color: 0.2rem solid #110d4f;
   padding: 0.5rem;
+}
+
+.payment__form__card__front input:focus {
+  border: 0.2rem solid #91ec91;
+  background-color: #fff;
+  color: #1c1b1b;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+          box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
 .payment__form__card__front input::-webkit-input-placeholder {
@@ -156,36 +190,72 @@ a {
   color: inherit;
 }
 
-.payment__form__card__front h1,
 .payment__form__card__front h2 {
   margin: 0.2rem 0.6rem;
-  color: #2d2d2d;
+  color: #d0d0d0;
   font-weight: bold;
+  text-align: center;
 }
 
 .payment__form__card__front__inputs input {
   width: 60%;
 }
 
+.payment__form__card__front__images {
+  position: relative;
+}
+
+.payment__form__card__front__images img {
+  overflow: hidden;
+  position: absolute;
+  bottom: 0;
+  right: 2rem;
+  width: 4rem;
+  height: 2.7rem;
+  background-color: transparent;
+}
+
+.payment__form__card__front__chip img {
+  margin: 0.8rem 2rem;
+  width: 3.4rem;
+  height: 2.3rem;
+  background-color: transparent;
+}
+
+.payment__form__card__front__cname {
+  width: 75%;
+}
+
 .payment__form__card__front__cname input {
-  width: 60%;
+  width: 80%;
+}
+
+.payment__form__card__front__expire {
+  width: 90%;
+  margin: 0.5rem 0 0.5rem 0;
 }
 
 .payment__form__card__front__expire input {
-  width: 17%;
+  width: 20%;
+  margin-left: 0;
+  border: none;
+  text-align: center;
+}
+
+.payment__form__card__front__expire label {
+  margin-left: 2rem;
 }
 
 .payment__form__card__back {
   height: 100%;
-  background: #007991;
-  background: -webkit-gradient(linear, left top, right top, from(#78ffd6), to(#007991));
-  background: linear-gradient(to right, #78ffd6, #007991);
+  background: #16222a;
+  background: -webkit-gradient(linear, left top, right top, from(#3a6073), to(#16222a));
+  background: linear-gradient(to right, #3a6073, #16222a);
   width: 24rem;
 }
 
 #cvv-card-top {
-  width: 15%;
-  margin-left: 4rem;
+  margin-left: 1.5rem;
 }
 
 #digits-error,

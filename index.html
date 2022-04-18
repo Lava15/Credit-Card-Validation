@@ -13,48 +13,68 @@
         <!-- CARD -->
         <div class="payment__form__card">
           <div class="payment__form__card__front">
-            <h1>BANKNAME</h1>
+            <h2>BANKNAME</h2>
+            <div class="payment__form__card__front__chip">
+              <img src="./src/assets/chip.png" alt="Credit card chip" />
+            </div>
 
             <span class="payment__form__card__front__inputs">
               <input
+                autofocus
                 id="top-input"
-                type="tel"
-                pattern="[0-9]{16}"
-                maxlength="16"
+                type="number"
+                max="16"
                 autocomplete="off"
                 placeholder="xxxx xxxx xxxx xxxx"
               />
             </span>
-            <!-- CARD HOLDER -->
-            <div class="payment__form__card__front__cname">
-              <label for="card-name"> <h2>Card Holder</h2> </label>
-              <input type="text" id="full-name-top" maxlength="20" />
-            </div>
 
             <!-- CARD EXPIRATION -->
 
-            <span class="payment__form__card__front__expire">
-              <label for="card-exp"><h2>Expires</h2></label>
+            <div class="payment__form__card__front__expire">
+              <label for="exp-month-top">VALID</label>
               <input
-                type="tel"
-                pattern="[0-9]{2}"
-                maxlength="2"
+                type="number"
+                min="2"
+                max="2"
                 id="exp-month-top"
                 placeholder="MM"
               />
+              <!-- <label for="exp-year-top">/</label> -->
+              <span>/</span>
               <input
                 id="exp-year-top"
-                type="text"
-                maxlength="4"
+                type="number"
+                min="4"
+                max="4"
                 placeholder="YEAR"
               />
-            </span>
-            <input
-              id="cvv-card-top"
-              type="text"
-              placeholder="CVV"
-              maxlength="4"
-            />
+
+              <input
+                id="cvv-card-top"
+                type="number"
+                min="4"
+                max="4"
+                placeholder="CVV"
+              />
+            </div>
+
+            <!-- CARD HOLDER -->
+            <div class="payment__form__card__front__cname">
+              <input
+                type="text"
+                id="full-name-top"
+                maxlength="20"
+                placeholder="AKHMEDOV LAZIZ"
+              />
+            </div>
+
+            <div class="payment__form__card__front__images">
+              <img src="./src/assets/humo.png" alt="Credit card chip" />
+              <img src="./src/assets/visa.png" alt="Credit card chip" />
+              <img src="./src/assets/mastercard.png" alt="Credit card chip" />
+              <img src="./src/assets/uzcard.png" alt="Credit card chip" />
+            </div>
           </div>
 
           <div class="payment__form__card__back">Credit Card back</div>
@@ -71,9 +91,9 @@
           <p id="digits-error"></p>
           <input
             id="digits"
-            type="tel"
-            pattern="[0-9]{16}"
-            maxlength="16"
+            type="number"
+            min="16"
+            max="16"
             autocomplete="off"
             placeholder="xxxx xxxx xxxx xxxx"
           />
@@ -81,6 +101,7 @@
           <input type="text" autocomplete="off" id="full-name" maxlength="20" />
 
           <select name="" id="exp-month">
+            <option value="" disabled selected>MM</option>
             <option value="01">01</option>
             <option value="02">02</option>
             <option value="03">03</option>
@@ -96,6 +117,7 @@
           </select>
 
           <select name="" id="exp-year">
+            <option value="" disabled selected>YEAR</option>
             <option value="2022">2022</option>
             <option value="2023">2023</option>
             <option value="2024">2024</option>
@@ -107,14 +129,7 @@
             <option value="2030">2030</option>
           </select>
 
-          <input
-            id="cvv-card"
-            type="text"
-            placeholder="CVC/CVV"
-            maxlength="4"
-            type="tel"
-            pattern="[0-9]{4}"
-          />
+          <input id="cvv-card" type="number" placeholder="CVC/CVV" />
           <p id="cvv-error"></p>
           <button type="submit" id="submit-form">Submit</button>
 
