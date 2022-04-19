@@ -89,7 +89,7 @@ input[type="number"]::-webkit-outer-spin-button {
           box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
-.payment__form__inputs input:nth-child(7) {
+.payment__form__inputs input:nth-child(5) {
   width: 31%;
   padding: 1.2rem;
   margin-bottom: 1.3rem;
@@ -266,11 +266,28 @@ input[type="number"]::-webkit-outer-spin-button {
   font-size: 1.5rem;
 }
 
+#exp-year-error,
+#exp-month-error,
 #cvv-error {
   color: #8e0101;
-  margin: 0 3.2rem 1.5rem 0;
+  width: 30%;
+  margin: 0;
   font-weight: bold;
-  text-align: end;
+  text-align: center;
   font-size: 1rem;
+}
+
+#errors3 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  margin-bottom: 1rem;
 }
 /*# sourceMappingURL=style.css.map */

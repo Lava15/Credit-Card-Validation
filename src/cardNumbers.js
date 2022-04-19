@@ -1,17 +1,17 @@
 // VALIDATION 16 DIGITS
-let REGEX_NUMBERS = /[0-9]/g;
+const inputNumber = document.querySelector("#digits");
+const cardNumber = document.querySelector("#top-input");
+const cardNumberErr = document.querySelector("#digits-error");
+
+//
+const expMonthTop = document.querySelector("#exp-month-top");
+const expMonth = document.querySelector("#exp-month");
+
+//
+const REGEX_CARDS = ["^4", "^5[1-5]", "^8[6]", "9860"];
 
 export const checkCardNumbers = () => {
-  let inputNumber = document.querySelector("#digits");
-  let cardNumber = document.querySelector("#top-input");
-  let cardNumberErr = document.querySelector("#digits-error");
-
-  //
-  let fullNameTop = document.querySelector("#full-name-top");
-  let fullName = document.querySelector("#full-name");
-
   const detectCard = (digits) => {
-    let REGEX_CARDS = ["^4", "^5[1-5]", "^8[6]", "9860"];
     if (digits.match(REGEX_CARDS[0]) !== null) {
       console.log("Visa card");
     }
@@ -28,7 +28,6 @@ export const checkCardNumbers = () => {
 
   const move = (next) => {
     if (true) {
-      inputNumber.value = cardNumber.value;
       next.focus();
     }
   };
@@ -39,11 +38,11 @@ export const checkCardNumbers = () => {
       ? inputNumber.setAttribute("value", e.target.value)
       : // 2
       cardNumber.value === ""
-      ? (cardNumberErr.innerText = "Credit card number is required") &&
+      ? (cardNumberErr.innerText = "Укажите Номер карты!") &&
         (inputNumber.value = "")
       : // 3
       cardNumber.value.length === 16 && true
-      ? move(fullNameTop)
+      ? move(expMonthTop) && (cardNumberErr.innerText = "")
       : // 4
       cardNumber.value.length === 4
       ? detectCard(cardNumber.value)
@@ -58,11 +57,11 @@ export const checkCardNumbers = () => {
       ? cardNumber.setAttribute("value", e.target.value)
       : // 2
       inputNumber.value === ""
-      ? (cardNumberErr.innerText = "Credit card number is required") &&
+      ? (cardNumberErr.innerText = "Укажите Номер карты!") &&
         (cardNumber.value = "")
       : // 3
       inputNumber.value.length === 16 && true
-      ? move(fullName)
+      ? move(expMonth) && (cardNumberErr.innerText = "")
       : // 3
 
         (cardNumber.value = inputNumber.value) &&

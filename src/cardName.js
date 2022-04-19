@@ -1,32 +1,31 @@
 // FULLNAME VALIDATION
-const REGEX_FULLNAME = /^([a-zA-Z]{3,})\s([a-zA-Z]{3,})$/;
+const fullNameTop = document.querySelector("#full-name-top");
+const fullName = document.querySelector("#full-name");
+const cardNameErr = document.querySelector("#cname-error");
+
+const REGEX_FULLNAME = /^[a-zA-Z ]+$/;
+
+const validateName = (name) => {
+  if (name.match(REGEX_FULLNAME)) {
+    cardNameErr.innerText = "";
+    return true;
+  } else {
+    cardNameErr.innerText = "Только латинские буквы - без символов";
+  }
+};
+
 export const checkCardName = () => {
-  let fullNameTop = document.querySelector("#full-name-top");
-  let fullName = document.querySelector("#full-name");
-  let cardNameErr = document.querySelector("#cname-error");
-
-  //
-  let expMonthTop = document.querySelector("#exp-month-top");
-  let expMonth = document.querySelector("#exp-month");
-
-  const move = (next) => {
-    if (true) {
-      fullName.value = fullNameTop.value;
-      next.focus();
-    }
-  };
-
   fullNameTop.addEventListener("input", (e) => {
     // 1
     fullNameTop === fullName
       ? fullName.setAttribute("value", e.target.value)
       : // 2
       fullNameTop.value === ""
-      ? (cardNameErr.innerText = "Credit card fullname is required") &&
+      ? (cardNameErr.innerText = "Укажите Имя и Фамилия!") &&
         (fullName.value = "")
       : // 3
-      fullNameTop.value.length === 20 && true
-      ? move(expMonthTop)
+      fullNameTop.value.length >= 0
+      ? (fullName.value = fullNameTop.value) && validateName(fullNameTop.value)
       : // 4
         (fullName.value = fullNameTop.value) && (cardNameErr.innerText = "");
   });
@@ -37,11 +36,11 @@ export const checkCardName = () => {
       ? fullNameTop.setAttribute("value", e.target.value)
       : // 2
       fullName.value === ""
-      ? (cardNameErr.innerText = "Credit card fullname is required") &&
+      ? (cardNameErr.innerText = "Укажите Имя и Фамилия!") &&
         (fullNameTop.value = "")
       : // 3
-      fullName.value.length === 20 && true
-      ? move(expMonth)
+      fullName.value.length >= 0
+      ? (fullNameTop.value = fullName.value) && validateName(fullName.value)
       : // 4
         (fullNameTop.value = fullName.value) && (cardNameErr.innerText = "");
 

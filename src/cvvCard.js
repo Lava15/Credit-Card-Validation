@@ -1,8 +1,8 @@
 // VALIDATION CARD CVV
 
-let cvvCardTop = document.querySelector("#cvv-card-top");
-let cvvCard = document.querySelector("#cvv-card");
-let cvvCardErr = document.querySelector("#cvv-error");
+const cvvCardTop = document.querySelector("#cvv-card-top");
+const cvvCard = document.querySelector("#cvv-card");
+const cvvCardErr = document.querySelector("#cvv-error");
 
 export const checkCardCvv = () => {
   cvvCardTop.addEventListener("input", (e) => {
@@ -12,6 +12,10 @@ export const checkCardCvv = () => {
       : // 2
       cvvCardTop.value === ""
       ? (cvvCardErr.innerText = "Введите CVC/CVV") && (cvvCard.value = "")
+      : //
+      cvvCardTop.value.length > 4
+      ? (cvvCardErr.innerText = "не более 4 цифр") &&
+        (cvvCard.value = cvvCardTop.value)
       : // 3
 
         (cvvCard.value = cvvCardTop.value) &&
@@ -26,6 +30,9 @@ export const checkCardCvv = () => {
       : // 2
       cvvCard.value === ""
       ? (cvvCardErr.innerText = "Введите CVC/CVV") && (cvvCardTop.value = "")
+      : cvvCard.value.length > 4
+      ? (cvvCardErr.innerText = "не более 4 цифр") &&
+        (cvvCardTop.value = cvvCard.value)
       : // 3
 
         (cvvCardTop.value = cvvCard.value) &&

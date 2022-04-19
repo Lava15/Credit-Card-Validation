@@ -64,7 +64,7 @@
               <input
                 type="text"
                 id="full-name-top"
-                maxlength="20"
+                maxlength="24"
                 placeholder="AKHMEDOV LAZIZ"
               />
             </div>
@@ -97,8 +97,6 @@
             autocomplete="off"
             placeholder="xxxx xxxx xxxx xxxx"
           />
-          <p id="cname-error"></p>
-          <input type="text" autocomplete="off" id="full-name" maxlength="20" />
 
           <select name="" id="exp-month">
             <option value="" disabled selected>MM</option>
@@ -130,7 +128,14 @@
           </select>
 
           <input id="cvv-card" type="number" placeholder="CVC/CVV" />
-          <p id="cvv-error"></p>
+          <div id="errors3">
+            <label for="exp-month" id="exp-month-error"></label>
+            <label for="exp-year" id="exp-year-error"></label>
+            <label for="cvv-card" id="cvv-error"></label>
+          </div>
+
+          <p id="cname-error"></p>
+          <input type="text" autocomplete="off" id="full-name" maxlength="24" />
           <button type="submit" id="submit-form">Submit</button>
 
           <!-- INPUTS -->

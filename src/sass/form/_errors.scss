@@ -5,11 +5,21 @@
   font-weight: bold;
   font-size: 1.5rem;
 }
-
+#exp-year-error,
+#exp-month-error,
 #cvv-error {
   color: $darkRed;
-  margin: 0 3.2rem 1.5rem 0;
+  width: 30%;
+  margin: 0;
   font-weight: bold;
-  text-align: end;
+  text-align: center;
   font-size: 1rem;
+}
+
+#errors3 {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 1rem;
 }
