@@ -1,19 +1,18 @@
 .payment__form__card {
-  z-index: 1;
   position: relative;
   height: 40%;
   margin-top: -15rem;
   margin-bottom: 5rem;
-  @include boxShadow;
-  overflow: hidden;
+  // @include boxShadow;
+  // overflow: hidden;
 
   &__front {
+    z-index: 1;
     position: absolute;
     height: 100%;
     width: 24rem;
     border-radius: 1rem;
     @include frontCardBg;
-    overflow: visible;
     //
     input {
       margin-left: 2rem;
@@ -96,13 +95,18 @@
   }
 
   &__back {
+    border-radius: 2rem;
     height: 100%;
     @include backCardBg;
     width: 24rem;
+    overflow: visible;
   }
 }
 
 #cvv-card-top {
   margin-left: 1.5rem;
-  // display: none ;
+  opacity: 0;
+}
+#cvv-card {
+  opacity: 0.5;
 }

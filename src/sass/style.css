@@ -133,18 +133,22 @@ input[type="number"]::-webkit-outer-spin-button {
           box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
+#visa-card,
+#mastercard,
+#humo-card,
+#uzcard {
+  display: none;
+}
+
 .payment__form__card {
-  z-index: 1;
   position: relative;
   height: 40%;
   margin-top: -15rem;
   margin-bottom: 5rem;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-          box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-  overflow: hidden;
 }
 
 .payment__form__card__front {
+  z-index: 1;
   position: absolute;
   height: 100%;
   width: 24rem;
@@ -152,7 +156,6 @@ input[type="number"]::-webkit-outer-spin-button {
   background: #bdc3c7;
   background: -webkit-gradient(linear, left top, right top, from(#2c3e50), to(#bdc3c7));
   background: linear-gradient(to right, #2c3e50, #bdc3c7);
-  overflow: visible;
 }
 
 .payment__form__card__front input {
@@ -247,15 +250,22 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 .payment__form__card__back {
+  border-radius: 2rem;
   height: 100%;
   background: #16222a;
   background: -webkit-gradient(linear, left top, right top, from(#3a6073), to(#16222a));
   background: linear-gradient(to right, #3a6073, #16222a);
   width: 24rem;
+  overflow: visible;
 }
 
 #cvv-card-top {
   margin-left: 1.5rem;
+  opacity: 0;
+}
+
+#cvv-card {
+  opacity: 0.5;
 }
 
 #digits-error,
@@ -289,5 +299,69 @@ input[type="number"]::-webkit-outer-spin-button {
           align-items: center;
   text-align: center;
   margin-bottom: 1rem;
+}
+
+@-webkit-keyframes fade {
+  0%,
+  100% {
+    opacity: 0;
+    z-index: -99;
+  }
+  50% {
+    z-index: -99;
+    -webkit-transform: translateX(200px);
+            transform: translateX(200px);
+    opacity: 1;
+  }
+}
+
+@keyframes fade {
+  0%,
+  100% {
+    opacity: 0;
+    z-index: -99;
+  }
+  50% {
+    z-index: -99;
+    -webkit-transform: translateX(200px);
+            transform: translateX(200px);
+    opacity: 1;
+  }
+}
+
+.show-back-card {
+  -webkit-animation: fade 3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+          animation: fade 3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+@-webkit-keyframes fadeBrand {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeBrand {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.show-brand {
+  -webkit-transition: all 6s ease-in-out;
+  transition: all 6s ease-in-out;
+  -webkit-animation: fadeBrand 1s both;
+          animation: fadeBrand 1s both;
 }
 /*# sourceMappingURL=style.css.map */

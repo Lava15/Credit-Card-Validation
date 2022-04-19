@@ -1,0 +1,33 @@
+@keyframes fade {
+  0%,
+  100% {
+    opacity: 0;
+    z-index: -99;
+  }
+  50% {
+    z-index: -99;
+    transform: translateX(200px);
+    opacity: 1;
+  }
+}
+
+.show-back-card {
+  animation: fade 3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+@keyframes fadeBrand {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.show-brand {
+  transition: all 6s ease-in-out;
+  animation: fadeBrand 1s both;
+}

@@ -23,7 +23,7 @@
                 autofocus
                 id="top-input"
                 type="number"
-                max="16"
+                maxlength="16"
                 autocomplete="off"
                 placeholder="xxxx xxxx xxxx xxxx"
               />
@@ -33,28 +33,15 @@
 
             <div class="payment__form__card__front__expire">
               <label for="exp-month-top">VALID</label>
-              <input
-                type="number"
-                min="2"
-                max="2"
-                id="exp-month-top"
-                placeholder="MM"
-              />
+              <input type="number" id="exp-month-top" placeholder="MM" />
               <!-- <label for="exp-year-top">/</label> -->
               <span>/</span>
-              <input
-                id="exp-year-top"
-                type="number"
-                min="4"
-                max="4"
-                placeholder="YEAR"
-              />
+              <input id="exp-year-top" type="number" placeholder="YEAR" />
 
               <input
+                disabled
                 id="cvv-card-top"
                 type="number"
-                min="4"
-                max="4"
                 placeholder="CVV"
               />
             </div>
@@ -70,14 +57,36 @@
             </div>
 
             <div class="payment__form__card__front__images">
-              <img src="./src/assets/humo.png" alt="Credit card chip" />
-              <img src="./src/assets/visa.png" alt="Credit card chip" />
-              <img src="./src/assets/mastercard.png" alt="Credit card chip" />
-              <img src="./src/assets/uzcard.png" alt="Credit card chip" />
+              <img
+                class="show-brand"
+                id="visa-card"
+                src="./src/assets/visa.png"
+                alt="Credit card chip"
+              />
+              <img
+                class="show-brand"
+                id="mastercard"
+                src="./src/assets/mastercard.png"
+                alt="Credit card chip"
+              />
+              <img
+                class="show-brand"
+                id="humo-card"
+                src="./src/assets/humo.png"
+                alt="Credit card chip"
+              />
+              <img
+                class="show-brand"
+                id="uzcard"
+                src="./src/assets/uzcard.png"
+                alt="Credit card chip"
+              />
             </div>
           </div>
 
-          <div class="payment__form__card__back">Credit Card back</div>
+          <div class="payment__form__card__back show-back-card">
+            Credit Card back
+          </div>
         </div>
 
         <!-- CVV -->
@@ -92,8 +101,6 @@
           <input
             id="digits"
             type="number"
-            min="16"
-            max="16"
             autocomplete="off"
             placeholder="xxxx xxxx xxxx xxxx"
           />
@@ -127,7 +134,13 @@
             <option value="2030">2030</option>
           </select>
 
-          <input id="cvv-card" type="number" placeholder="CVC/CVV" />
+          <input
+            disabled
+            name="hide-cvv"
+            id="cvv-card"
+            type="number"
+            placeholder="CVC/CVV"
+          />
           <div id="errors3">
             <label for="exp-month" id="exp-month-error"></label>
             <label for="exp-year" id="exp-year-error"></label>

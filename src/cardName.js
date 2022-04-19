@@ -43,7 +43,5 @@ export const checkCardName = () => {
       ? (fullNameTop.value = fullName.value) && validateName(fullName.value)
       : // 4
         (fullNameTop.value = fullName.value) && (cardNameErr.innerText = "");
-
-    fullNameTop.setAttribute("value", e.target.value);
   });
 };
