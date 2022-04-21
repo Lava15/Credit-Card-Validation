@@ -1,0 +1,71 @@
+<style>
+  .success-box-container {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    color: #fff;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-line-pack: center;
+    align-content: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    text-align: center;
+    z-index: 0;
+  }
+
+  .success-box-container .success-box {
+    text-align: center;
+    font-family: "Lato, sans-serif";
+    padding: 20px;
+    z-index: 9999;
+  }
+
+  .success-box-container .success-box h1 {
+    font-size: 3rem;
+  }
+
+  .success-box-container .success-box p {
+    font-size: 1.5rem;
+  }
+
+  .success-box-container::before {
+    content: "";
+    position: absolute;
+    background: #2ecc71;
+    width: 100%;
+    bottom: 0;
+    -webkit-animation: wipe 5s cubic-bezier(0.2, 0.6, 0.8, 0.4) forwards;
+    animation: wipe 5s cubic-bezier(0.2, 0.6, 0.8, 0.4) forwards;
+  }
+
+  @-webkit-keyframes wipe {
+    0% {
+      height: 0;
+    }
+    100% {
+      height: 100%;
+    }
+  }
+
+  @keyframes wipe {
+    0% {
+      height: 0;
+    }
+    100% {
+      height: 100%;
+    }
+  }
+</style>
+<div class="success-box-container">
+  <div class="success-box">
+    <h1>Оплата Прошла Успешно!</h1>
+    <h2>Спасибо за покупку, ждем вас снова</h2>
+    <button><a href="./index.html">Вернуться</a></button>
+  </div>
+</div>

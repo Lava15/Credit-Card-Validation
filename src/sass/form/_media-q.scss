@@ -1,0 +1,63 @@
+@media screen and(max-width: 400px) {
+  #payment-form {
+    height: 35rem;
+    max-width: 35rem;
+  }
+  .payment__form {
+    &__inputs {
+      input {
+        font-size: 0.8rem;
+        margin-bottom: 2rem;
+        &:nth-child(5) {
+          width: 29%;
+          padding: 1.2rem;
+          margin-bottom: 1.3rem;
+          text-align: center;
+        }
+      }
+
+      select {
+        padding: 1rem;
+        width: 26%;
+        margin-right: 0.8rem;
+        margin-bottom: 1.3rem;
+        font-size: 0.8rem;
+      }
+    }
+  }
+
+  .payment__form__card {
+    height: 45%;
+  }
+}
+////////////////////
+@media screen and(max-width: 380px) {
+  .payment__form__card {
+    height: 40%;
+    @include flexCenter;
+    &__front {
+      height: 100%;
+      width: 20rem;
+      border-radius: 1rem;
+      @include frontCardBg;
+      //
+      input {
+        font-size: 0.7rem;
+        padding: 0.3rem;
+
+        &::placeholder {
+          color: inherit;
+        }
+      }
+      //
+    }
+
+    &__back {
+      width: 20rem;
+    }
+  }
+
+  #cvv-card-top {
+    margin-left: 0;
+  }
+}

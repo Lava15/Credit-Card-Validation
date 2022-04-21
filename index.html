@@ -9,7 +9,7 @@
   </head>
   <body>
     <div id="payment-form">
-      <form action="" class="payment__form">
+      <form action="success.html" class="payment__form" method="get">
         <!-- CARD -->
         <div class="payment__form__card">
           <div class="payment__form__card__front">
@@ -20,12 +20,11 @@
 
             <span class="payment__form__card__front__inputs">
               <input
-                autofocus
                 id="top-input"
                 type="number"
-                maxlength="16"
                 autocomplete="off"
                 placeholder="xxxx xxxx xxxx xxxx"
+                required
               />
             </span>
 
@@ -33,16 +32,26 @@
 
             <div class="payment__form__card__front__expire">
               <label for="exp-month-top">VALID</label>
-              <input type="number" id="exp-month-top" placeholder="MM" />
-              <!-- <label for="exp-year-top">/</label> -->
+              <input
+                type="number"
+                id="exp-month-top"
+                placeholder="MM"
+                required
+              />
               <span>/</span>
-              <input id="exp-year-top" type="number" placeholder="YEAR" />
+              <input
+                id="exp-year-top"
+                type="number"
+                placeholder="YEAR"
+                required
+              />
 
               <input
                 disabled
                 id="cvv-card-top"
                 type="number"
                 placeholder="CVV"
+                required
               />
             </div>
 
@@ -52,7 +61,8 @@
                 type="text"
                 id="full-name-top"
                 maxlength="24"
-                placeholder="AKHMEDOV LAZIZ"
+                placeholder="Ex. AKHMEDOV LAZIZ"
+                required
               />
             </div>
 
@@ -60,7 +70,7 @@
               <img
                 class="show-brand"
                 id="visa-card"
-                src="./src/assets/visa.png"
+                src="./src/assets/visa.svg"
                 alt="Credit card chip"
               />
               <img
@@ -84,8 +94,13 @@
             </div>
           </div>
 
-          <div class="payment__form__card__back show-back-card">
-            Credit Card back
+          <div class="payment__form__card__back" id="show-backside">
+            <span></span>
+            <span>
+              <span></span>
+              <h2>CVV</h2>
+            </span>
+            <span></span>
           </div>
         </div>
 
@@ -102,10 +117,11 @@
             id="digits"
             type="number"
             autocomplete="off"
-            placeholder="xxxx xxxx xxxx xxxx"
+            placeholder="Номер Карты - 16 цифр"
+            required
           />
 
-          <select name="" id="exp-month">
+          <select name="" id="exp-month" required>
             <option value="" disabled selected>MM</option>
             <option value="01">01</option>
             <option value="02">02</option>
@@ -121,7 +137,7 @@
             <option value="12">12</option>
           </select>
 
-          <select name="" id="exp-year">
+          <select name="" id="exp-year" required>
             <option value="" disabled selected>YEAR</option>
             <option value="2022">2022</option>
             <option value="2023">2023</option>
@@ -148,8 +164,16 @@
           </div>
 
           <p id="cname-error"></p>
-          <input type="text" autocomplete="off" id="full-name" maxlength="24" />
+          <input
+            placeholder="Имя и фамилия на карте"
+            type="text"
+            autocomplete="off"
+            id="full-name"
+            maxlength="24"
+            required
+          />
           <button type="submit" id="submit-form">Submit</button>
+          <p id="final-validation-error"></p>
 
           <!-- INPUTS -->
         </div>

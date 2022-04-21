@@ -1,3 +1,4 @@
+import { disableBtn, enableBtn } from "./disableBtn.js";
 // VALIDATION 16 DIGITS
 const inputNumber = document.querySelector("#digits");
 const cardNumber = document.querySelector("#top-input");
@@ -68,45 +69,52 @@ const detectCard = (digits) => {
 
 export const checkCardNumbers = () => {
   const move = (next) => {
-    if (true) {
-      next.focus();
-    }
+    cardNumberErr.innerText = "";
+    next.focus();
+    enableBtn();
   };
 
   cardNumber.addEventListener("input", (e) => {
     // 1
     !inputNumber === cardNumber
       ? inputNumber.setAttribute("value", e.target.value)
-      : // 2
+      : //
       cardNumber.value === ""
       ? (cardNumberErr.innerText = "Укажите Номер карты!") &&
         (inputNumber.value = "")
-      : // 3
+      : //
       cardNumber.value.length === 16 && (inputNumber.value = cardNumber.value)
       ? move(expMonthTop)
-      : // 4
+      : //
+      cardNumber.value.length > 16 && (inputNumber.value = cardNumber.value)
+      ? (cardNumberErr.innerText = "Вы набрали более 16 цифр") && disableBtn()
+      : //
       cardNumber.value.length === 4 && (inputNumber.value = cardNumber.value)
       ? detectCard(cardNumber.value)
-      : // 3
+      : //
         (inputNumber.value = cardNumber.value) &&
         (cardNumberErr.innerText = "");
   });
 
   inputNumber.addEventListener("input", (e) => {
-    // 1
+    //
     inputNumber === cardNumber
       ? cardNumber.setAttribute("value", e.target.value)
-      : // 2
+      : //
       inputNumber.value === ""
       ? (cardNumberErr.innerText = "Укажите Номер карты!") &&
         (cardNumber.value = "")
-      : // 3
+      : //
+
       inputNumber.value.length === 16 && (cardNumber.value = inputNumber.value)
       ? move(expMonth)
-      : // 4
+      : //
+      inputNumber.value.length > 16 && (inputNumber.value = cardNumber.value)
+      ? (cardNumberErr.innerText = "Вы набрали более 16 цифр") && disableBtn()
+      : //
       inputNumber.value.length === 4 && (cardNumber.value = inputNumber.value)
       ? detectCard(inputNumber.value)
-      : // 3
+      : //
         (cardNumber.value = inputNumber.value) &&
         (cardNumberErr.innerText = "");
   });

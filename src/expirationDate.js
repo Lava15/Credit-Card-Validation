@@ -1,3 +1,5 @@
+import { disableBtn, enableBtn } from "./disableBtn.js";
+
 // VALIDATION EXPIRATION DATE MONTH
 
 const expMonthTop = document.querySelector("#exp-month-top");
@@ -17,11 +19,12 @@ const REGEX_YEAR = /20(?:2\d|30)/;
 const move = (next, mmyy) => {
   if (mmyy.match(REGEX_MONTH)) {
     next.focus();
-    return true;
-  }
-  if (mmyy.match(REGEX_YEAR)) {
+    enableBtn();
+    expMonthErr.innerText = "";
+  } else if (mmyy.match(REGEX_YEAR)) {
     next.focus();
-    return true;
+    enableBtn();
+    expYearErr.innerText = "";
   }
 };
 export const checkCardMonth = () => {
@@ -34,24 +37,31 @@ export const checkCardMonth = () => {
       ? move(expYearTop, expMonthTop.value)
       : //
       expMonthTop.value.length > 2
-      ? (expMonthErr.innerText = "Только 2 номера")
+      ? (expMonthErr.innerText = "Максимум 2 цифры") &&
+        (expMonth.value = "") &&
+        disableBtn()
       : //
       expMonthTop.value === ""
-      ? (expMonthErr.innerText = "Укажите месяц")
+      ? (expMonthErr.innerText = "Укажите месяц") &&
+        (expMonth.value = expMonthTop.value)
       : //
         (expMonth.value = expMonthTop.value) && (expMonthErr.innerText = "");
   });
 
   expMonth.addEventListener("input", (e) => {
-    // 1
+    //
     !expMonthTop === expMonth
       ? expMonth.setAttribute("value", e.target.value)
-      : // 2
-      expMonth.value.length === 2 &&
-        true &&
-        (expMonthTop.value = expMonth.value)
+      : //
+      expMonth.value.length === 2 && (expMonthTop.value = expMonth.value)
       ? move(expYear, expMonth.value)
-      : // 3
+      : //
+      expMonth.value.length > 2
+      ? (expMonthErr.innerText = "Максимум 2 цифры")
+      : //
+      expMonth.value === ""
+      ? (expMonthErr.innerText = "Укажите месяц")
+      : //
         (expMonthTop.value = expMonth.value) && (expMonthErr.innerText = "");
   });
 };
@@ -59,34 +69,33 @@ export const checkCardMonth = () => {
 // VALIDATION EXPIRATION DATE YEAR
 export const checkCardYear = () => {
   expYearTop.addEventListener("input", (e) => {
-    // 1
+    //
     expYearTop === expYear
       ? expYearTop.setAttribute("value", e.target.value)
-      : // 2
-      expYearTop.value.length === 4 &&
-        true &&
-        (expYear.value = expYearTop.value)
+      : //
+      expYearTop.value.length === 4 && (expYear.value = expYearTop.value)
       ? move(cvvCardTop, expYearTop.value)
       : //
       expYearTop.value.length > 4
-      ? (expYearErr.innerText = "Только 4 цифры")
+      ? (expYearErr.innerText = "Только 4 цифры") && disableBtn()
+      : //
+      expYearTop.value.length < 4
+      ? disableBtn()
       : //
       expYearTop.value === ""
-      ? (expYearErr.innerText = "Укажите год")
-      : // 3
+      ? (expYearErr.innerText = "Укажите год") && (expYear.value = "")
+      : //
         (expYear.value = expYearTop.value) && (expYearErr.innerText = "");
   });
 
   expYear.addEventListener("input", (e) => {
-    // 1
+    //
     !expYearTop === expYear
       ? expYear.setAttribute("value", e.target.value)
-      : // 2
-      expYear.value.length === 4 && true && (expYearTop.value = expYear.value)
+      : //
+      expYear.value.length === 4 && (expYearTop.value = expYear.value)
       ? move(cvvCard, expYear.value)
-      : // 3
+      : //
         (expYearTop.value = expYear.value);
   });
-
-  console.log("Validating Expiration Year");
 };

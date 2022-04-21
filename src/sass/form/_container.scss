@@ -66,6 +66,12 @@
         color: $darkGray;
         @include boxShadow;
       }
+
+      &:disabled {
+        border: 1px solid #999999;
+        background-color: #cccccc;
+        color: #666666;
+      }
     }
   }
 }
@@ -74,5 +80,6 @@
 #mastercard,
 #humo-card,
 #uzcard {
+  background-color: transparent;
   display: none;
 }
