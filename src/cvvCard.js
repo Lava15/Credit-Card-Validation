@@ -23,7 +23,8 @@ export const checkCardCvv = () => {
       : //
       cvvCardTop.value.length > 4
       ? (cvvCardErr.innerText = "не более 4 цифр") &&
-        (cvvCard.value = cvvCardTop.value)
+        (cvvCardTop.value = cvvCardTop.value = "") &&
+        disableBtn()
       : //
       cvvCardTop.value.length === 4 && (cvvCard.value = cvvCardTop.value)
       ? move(fullNameTop)
@@ -41,7 +42,8 @@ export const checkCardCvv = () => {
       ? (cvvCardErr.innerText = "Введите CVC/CVV") && (cvvCardTop.value = "")
       : cvvCard.value.length > 4
       ? (cvvCardErr.innerText = "не более 4 цифр") &&
-        (cvvCardTop.value = cvvCard.value)
+        (cvvCard.value = cvvCard.value = "") &&
+        disableBtn()
       : //
       cvvCard.value.length === 4 && (cvvCardTop.value = cvvCard.value)
       ? move(fullName)

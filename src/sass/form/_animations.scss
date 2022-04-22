@@ -16,3 +16,26 @@
 }
 
 /////////////////////////////
+@keyframes fadeErrorMessages {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+#digits-error,
+#cname-error,
+#exp-year-error,
+#exp-month-error,
+#cvv-error,
+#exp-year-error,
+#cvv-error,
+#errors3 {
+  animation: fadeErrorMessages 1s both;
+  transition: opacity 2s ease-in;
+}

@@ -9,6 +9,7 @@
 #exp-year-error,
 #exp-month-error,
 #cvv-error {
+  transition: all 1000ms ease-in-out 1000ms;
   color: $darkRed;
   width: 30%;
   margin: 0;
@@ -30,12 +31,4 @@
   align-items: center;
   text-align: center;
   margin-bottom: 1rem;
-}
-
-#final-validation-error {
-  color: $darkRed;
-  font-weight: bold;
-  text-align: center;
-  font-size: 1.2rem;
-  margin-top: 1rem;
 }
