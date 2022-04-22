@@ -7,25 +7,12 @@ const cvvCardErr = document.querySelector("#cvv-error");
 const fullNameTop = document.querySelector("#full-name-top");
 const fullName = document.querySelector("#full-name");
 
-const backSide = document.querySelector("#show-backside");
-
 const move = (next) => {
   next.focus();
   enableBtn();
 };
 
-const showBackSide = () => {
-  backSide.classList.toggle("show-back-card");
-};
-
 export const checkCardCvv = () => {
-  cvvCard.addEventListener("focus", () => {
-    showBackSide();
-  });
-  cvvCardTop.addEventListener("focus", () => {
-    showBackSide();
-  });
-
   cvvCardTop.addEventListener("input", (e) => {
     //
     cvvCardTop === cvvCard
@@ -36,9 +23,7 @@ export const checkCardCvv = () => {
       : //
       cvvCardTop.value.length > 4
       ? (cvvCardErr.innerText = "не более 4 цифр") &&
-        (cvvCard.value = cvvCardTop.value) &&
-        true &&
-        console.log("CVV1 TRUE")
+        (cvvCard.value = cvvCardTop.value)
       : //
       cvvCardTop.value.length === 4 && (cvvCard.value = cvvCardTop.value)
       ? move(fullNameTop)
@@ -56,9 +41,7 @@ export const checkCardCvv = () => {
       ? (cvvCardErr.innerText = "Введите CVC/CVV") && (cvvCardTop.value = "")
       : cvvCard.value.length > 4
       ? (cvvCardErr.innerText = "не более 4 цифр") &&
-        (cvvCardTop.value = cvvCard.value) &&
-        true &&
-        console.log("NUMBER4 TRUE")
+        (cvvCardTop.value = cvvCard.value)
       : //
       cvvCard.value.length === 4 && (cvvCardTop.value = cvvCard.value)
       ? move(fullName)
@@ -66,5 +49,4 @@ export const checkCardCvv = () => {
 
         (cvvCardTop.value = cvvCard.value) && (cvvCardErr.innerText = "");
   });
-  return true;
 };

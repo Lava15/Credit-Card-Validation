@@ -1,18 +1,18 @@
 .payment__form__card {
   position: relative;
-  height: 40%;
+  height: 42%;
   margin-top: -13rem;
   margin-bottom: 5rem;
   // overflow: hidden;
-
   &__front {
-    z-index: 1;
-    position: absolute;
     height: 100%;
-    width: 24rem;
+    width: 27rem;
     border-radius: 1rem;
-    @include frontCardBg;
-    //
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+      url(/src/assets/front.jpeg);
+    background-position: center;
+    background-size: cover;
+
     input {
       margin-left: 2rem;
       background-color: transparent;
@@ -22,25 +22,32 @@
       outline: none;
       border-radius: 0.4rem;
       padding: 0.5rem;
+      border: none;
 
       &:focus {
-        border: 0.2rem solid $lightGreen;
-        background-color: $white;
-        color: $darkGray;
-        @include boxShadow;
+        border: 0.05rem solid $white;
+        background: linear-gradient(rgba(0, 0, 0, 0.3));
+        @keyframes leaves {
+          0% {
+            transform: scale(1.1);
+          }
+          100% {
+            transform: scale(1);
+          }
+        }
+        animation: leaves 500ms ease-in-out both;
       }
-
       &::placeholder {
         color: inherit;
       }
     }
     //
-
     h2 {
+      width: 60%;
       margin: 0.2rem 0.6rem;
-      color: #d0d0d0;
+      color: #e9e9e9;
       font-weight: bold;
-      text-align: center;
+      text-align: end;
     }
 
     &__inputs {
@@ -52,19 +59,36 @@
     &__images {
       position: relative;
       img {
-        overflow: hidden;
+        border-radius: 2rem;
+        right: 2.3rem;
+        bottom: -0.3rem;
+        padding: 0.4rem;
+        background: linear-gradient(rgba(255, 255, 255, 0.378), #ffffffa6);
+        width: 5rem;
+        object-fit: contain;
+        height: 3rem;
         position: absolute;
-        bottom: 0;
-        right: 2rem;
-        width: 4rem;
-        height: 2.7rem;
-        background-color: transparent;
+        @include boxShadow;
+        &:nth-child(3) {
+          background: none;
+          border-radius: 0;
+          height: 2.3rem;
+          bottom: 0rem;
+          right: 1.5rem;
+          padding: 0;
+        }
       }
     }
 
     &__chip {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      padding: 1.5rem 1.7rem 1rem 2rem;
       img {
-        margin: 0.8rem 2rem;
+        margin: 1rem 0 0 1rem;
+        width: 40%;
         width: 3.4rem;
         height: 2.3rem;
         background-color: transparent;
@@ -79,54 +103,18 @@
 
     &__expire {
       width: 90%;
-      margin: 0.5rem 0 0.5rem 0;
+      margin: 1rem 0 1rem 0;
       input {
-        width: 20%;
+        width: 15%;
         margin-left: 0;
-        border: none;
         text-align: center;
       }
-
+      span {
+        font-weight: bold;
+      }
       label {
-        margin-left: 2rem;
-      }
-    }
-  }
-
-  &__back {
-    border-radius: 2rem;
-    height: 100%;
-    width: 100%;
-    @include backCardBg;
-    width: 24rem;
-    overflow: visible;
-    @include flexCenter;
-    flex-direction: column;
-    span {
-      &:nth-child(1) {
-        width: 100%;
-        height: 20%;
-        background-color: $darkGray;
-      }
-
-      &:nth-child(2) {
-        padding: 1rem 1rem 0 0;
-        margin: 1rem 0 0 1rem;
-        width: 60%;
-        height: 20%;
-        background-color: $white;
-        align-self: flex-start;
-        text-align: end;
-        color: $darkRed;
-      }
-
-      &:nth-child(3) {
-        margin: 1rem 0 0 1rem;
-        width: 30%;
-        height: 30%;
-        background-color: #eedf06;
-        border-radius: 2rem;
-        align-self: flex-start;
+        margin: 0 1rem 0 5rem;
+        font-weight: bold;
       }
     }
   }
@@ -138,4 +126,10 @@
 }
 #cvv-card {
   opacity: 0.5;
+}
+#top-input {
+  width: 85%;
+  letter-spacing: 0.3rem;
+  padding-left: 1.45rem;
+  font-size: 1.3rem;
 }

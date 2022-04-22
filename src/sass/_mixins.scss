@@ -4,24 +4,13 @@
   align-items: center;
 }
 
-@mixin frontCardBg {
-  background: #bdc3c7;
-  background: -webkit-linear-gradient(to right, #2c3e50, #bdc3c7);
-  background: linear-gradient(to right, #2c3e50, #bdc3c7);
-}
-
-@mixin backCardBg {
-  background: #16222a;
-  background: -webkit-linear-gradient(to right, #3a6073, #16222a);
-  background: linear-gradient(to right, #3a6073, #16222a);
-}
-
 @mixin boxShadow {
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
     rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
     rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
-
-@mixin transition {
-  transition: all 1s ease-in-out;
+select:focus,
+input:focus {
+  border: 0.15rem solid $darkBlue;
+  outline: none;
 }

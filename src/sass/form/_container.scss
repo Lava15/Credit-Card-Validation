@@ -24,10 +24,6 @@
       padding: 0.8rem;
       margin-bottom: 2rem;
 
-      &:focus {
-        @include boxShadow;
-      }
-
       &:nth-child(5) {
         width: 31%;
         padding: 1.2rem;
@@ -43,10 +39,6 @@
       margin-bottom: 1.3rem;
       font-size: 1rem;
       font-weight: bold;
-      &:focus {
-        @include boxShadow;
-        background-color: $white;
-      }
     }
 
     button {
@@ -58,7 +50,6 @@
       color: $white;
       font-weight: bold;
       font-size: 1.5rem;
-      border: none;
       @include boxShadow;
 
       &:focus {

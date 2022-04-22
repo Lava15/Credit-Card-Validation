@@ -13,17 +13,19 @@
         <!-- CARD -->
         <div class="payment__form__card">
           <div class="payment__form__card__front">
-            <h2>BANKNAME</h2>
             <div class="payment__form__card__front__chip">
               <img src="./src/assets/chip.png" alt="Credit card chip" />
+              <h2>BANKNAME</h2>
             </div>
 
             <span class="payment__form__card__front__inputs">
               <input
                 id="top-input"
-                type="number"
+                type="tel"
+                maxlength="22"
                 autocomplete="off"
-                placeholder="xxxx xxxx xxxx xxxx"
+                placeholder="#### #### #### ####"
+                pattern="[0-9 ]+"
                 required
               />
             </span>
@@ -42,7 +44,7 @@
               <input
                 id="exp-year-top"
                 type="number"
-                placeholder="YEAR"
+                placeholder="YY"
                 required
               />
 
@@ -93,15 +95,6 @@
               />
             </div>
           </div>
-
-          <div class="payment__form__card__back" id="show-backside">
-            <span></span>
-            <span>
-              <span></span>
-              <h2>CVV</h2>
-            </span>
-            <span></span>
-          </div>
         </div>
 
         <!-- CVV -->
@@ -115,10 +108,12 @@
           <p id="digits-error"></p>
           <input
             id="digits"
-            type="number"
+            type="tel"
+            maxlength="22"
             autocomplete="off"
             placeholder="Номер Карты - 16 цифр"
             required
+            pattern="[0-9 ]+"
           />
 
           <select name="" id="exp-month" required>
@@ -169,7 +164,7 @@
             type="text"
             autocomplete="off"
             id="full-name"
-            maxlength="24"
+            maxlength="22"
             required
           />
           <button type="submit" id="submit-form">Submit</button>

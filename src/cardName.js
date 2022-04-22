@@ -12,6 +12,7 @@ const validateName = (name) => {
     enableBtn();
   } else {
     cardNameErr.innerText = "Только латинские буквы - без символов";
+    disableBtn();
   }
 };
 

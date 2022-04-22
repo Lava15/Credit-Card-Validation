@@ -14,7 +14,7 @@ const cvvCardTop = document.querySelector("#cvv-card-top");
 const cvvCard = document.querySelector("#cvv-card");
 
 const REGEX_MONTH = /^0[1-9]|1[012]$/;
-const REGEX_YEAR = /20(?:2\d|30)/;
+const REGEX_YEAR = (202)[0 - 2] || (203)[0];
 
 const move = (next, mmyy) => {
   if (mmyy.match(REGEX_MONTH)) {
@@ -22,8 +22,8 @@ const move = (next, mmyy) => {
     enableBtn();
     expMonthErr.innerText = "";
   } else if (mmyy.match(REGEX_YEAR)) {
+    console.log("test");
     next.focus();
-    enableBtn();
     expYearErr.innerText = "";
   }
 };
@@ -73,17 +73,15 @@ export const checkCardYear = () => {
     expYearTop === expYear
       ? expYearTop.setAttribute("value", e.target.value)
       : //
-      expYearTop.value.length === 4 && (expYear.value = expYearTop.value)
-      ? move(cvvCardTop, expYearTop.value)
+      expYearTop.value.length === 2
+      ? (expYear.value = 20 + expYearTop.value) &&
+        move(cvvCardTop, expYearTop.value)
       : //
-      expYearTop.value.length > 4
-      ? (expYearErr.innerText = "Только 4 цифры") && disableBtn()
+      expYearTop.value.length >= 2 || expYearTop.value !== expYear.value
+      ? (expYearErr.innerText = "Неверный формат") && disableBtn()
       : //
-      expYearTop.value.length < 4
-      ? disableBtn()
-      : //
-      expYearTop.value === ""
-      ? (expYearErr.innerText = "Укажите год") && (expYear.value = "")
+      expYearTop.value.length < 1
+      ? (expYearErr.innerText = "Укажите год") && disableBtn()
       : //
         (expYear.value = expYearTop.value) && (expYearErr.innerText = "");
   });
@@ -93,7 +91,7 @@ export const checkCardYear = () => {
     !expYearTop === expYear
       ? expYear.setAttribute("value", e.target.value)
       : //
-      expYear.value.length === 4 && (expYearTop.value = expYear.value)
+      expYear.value.length === 4 && (expYearTop.value = expYear.value.slice(-2))
       ? move(cvvCard, expYear.value)
       : //
         (expYearTop.value = expYear.value);

@@ -11,7 +11,6 @@ body {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   background-color: rebeccapurple;
-  height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -35,6 +34,12 @@ input[type="number"]::-webkit-inner-spin-button {
 
 input[type="number"] {
   -moz-appearance: textfield;
+}
+
+select:focus,
+input:focus {
+  border: 0.15rem solid #1b51a7;
+  outline: none;
 }
 
 #payment-form {
@@ -86,11 +91,6 @@ input[type="number"] {
   margin-bottom: 2rem;
 }
 
-.payment__form__inputs input:focus {
-  -webkit-box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-          box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-}
-
 .payment__form__inputs input:nth-child(5) {
   width: 31%;
   padding: 1.2rem;
@@ -107,12 +107,6 @@ input[type="number"] {
   font-weight: bold;
 }
 
-.payment__form__inputs select:focus {
-  -webkit-box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-          box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-  background-color: #fff;
-}
-
 .payment__form__inputs button {
   width: 90%;
   padding: 1.2rem;
@@ -123,7 +117,6 @@ input[type="number"] {
   color: #fff;
   font-weight: bold;
   font-size: 1.5rem;
-  border: none;
   -webkit-box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
           box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
@@ -151,20 +144,19 @@ input[type="number"] {
 
 .payment__form__card {
   position: relative;
-  height: 40%;
+  height: 42%;
   margin-top: -13rem;
   margin-bottom: 5rem;
 }
 
 .payment__form__card__front {
-  z-index: 1;
-  position: absolute;
   height: 100%;
-  width: 24rem;
+  width: 27rem;
   border-radius: 1rem;
-  background: #bdc3c7;
-  background: -webkit-gradient(linear, left top, right top, from(#2c3e50), to(#bdc3c7));
-  background: linear-gradient(to right, #2c3e50, #bdc3c7);
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.4)), to(rgba(0, 0, 0, 0.4))), url(/src/assets/front.jpeg);
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(/src/assets/front.jpeg);
+  background-position: center;
+  background-size: cover;
 }
 
 .payment__form__card__front input {
@@ -176,14 +168,37 @@ input[type="number"] {
   outline: none;
   border-radius: 0.4rem;
   padding: 0.5rem;
+  border: none;
 }
 
 .payment__form__card__front input:focus {
-  border: 0.2rem solid #91ec91;
-  background-color: #fff;
-  color: #1c1b1b;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-          box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  border: 0.05rem solid #fff;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.3)));
+  background: linear-gradient(rgba(0, 0, 0, 0.3));
+  -webkit-animation: leaves 500ms ease-in-out both;
+          animation: leaves 500ms ease-in-out both;
+}
+
+@-webkit-keyframes leaves {
+  0% {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes leaves {
+  0% {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
 }
 
 .payment__form__card__front input::-webkit-input-placeholder {
@@ -203,10 +218,11 @@ input[type="number"] {
 }
 
 .payment__form__card__front h2 {
+  width: 60%;
   margin: 0.2rem 0.6rem;
-  color: #d0d0d0;
+  color: #e9e9e9;
   font-weight: bold;
-  text-align: center;
+  text-align: end;
 }
 
 .payment__form__card__front__inputs input {
@@ -218,17 +234,47 @@ input[type="number"] {
 }
 
 .payment__form__card__front__images img {
-  overflow: hidden;
+  border-radius: 2rem;
+  right: 2.3rem;
+  bottom: -0.3rem;
+  padding: 0.4rem;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.378)), to(#ffffffa6));
+  background: linear-gradient(rgba(255, 255, 255, 0.378), #ffffffa6);
+  width: 5rem;
+  -o-object-fit: contain;
+     object-fit: contain;
+  height: 3rem;
   position: absolute;
-  bottom: 0;
-  right: 2rem;
-  width: 4rem;
-  height: 2.7rem;
-  background-color: transparent;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+          box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.payment__form__card__front__images img:nth-child(3) {
+  background: none;
+  border-radius: 0;
+  height: 2.3rem;
+  bottom: 0rem;
+  right: 1.5rem;
+  padding: 0;
+}
+
+.payment__form__card__front__chip {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  padding: 1.5rem 1.7rem 1rem 2rem;
 }
 
 .payment__form__card__front__chip img {
-  margin: 0.8rem 2rem;
+  margin: 1rem 0 0 1rem;
+  width: 40%;
   width: 3.4rem;
   height: 2.3rem;
   background-color: transparent;
@@ -244,70 +290,22 @@ input[type="number"] {
 
 .payment__form__card__front__expire {
   width: 90%;
-  margin: 0.5rem 0 0.5rem 0;
+  margin: 1rem 0 1rem 0;
 }
 
 .payment__form__card__front__expire input {
-  width: 20%;
+  width: 15%;
   margin-left: 0;
-  border: none;
   text-align: center;
 }
 
+.payment__form__card__front__expire span {
+  font-weight: bold;
+}
+
 .payment__form__card__front__expire label {
-  margin-left: 2rem;
-}
-
-.payment__form__card__back {
-  border-radius: 2rem;
-  height: 100%;
-  width: 100%;
-  background: #16222a;
-  background: -webkit-gradient(linear, left top, right top, from(#3a6073), to(#16222a));
-  background: linear-gradient(to right, #3a6073, #16222a);
-  width: 24rem;
-  overflow: visible;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
-
-.payment__form__card__back span:nth-child(1) {
-  width: 100%;
-  height: 20%;
-  background-color: #1c1b1b;
-}
-
-.payment__form__card__back span:nth-child(2) {
-  padding: 1rem 1rem 0 0;
-  margin: 1rem 0 0 1rem;
-  width: 60%;
-  height: 20%;
-  background-color: #fff;
-  -ms-flex-item-align: start;
-      align-self: flex-start;
-  text-align: end;
-  color: #8e0101;
-}
-
-.payment__form__card__back span:nth-child(3) {
-  margin: 1rem 0 0 1rem;
-  width: 30%;
-  height: 30%;
-  background-color: #eedf06;
-  border-radius: 2rem;
-  -ms-flex-item-align: start;
-      align-self: flex-start;
+  margin: 0 1rem 0 5rem;
+  font-weight: bold;
 }
 
 #cvv-card-top {
@@ -317,6 +315,13 @@ input[type="number"] {
 
 #cvv-card {
   opacity: 0.5;
+}
+
+#top-input {
+  width: 85%;
+  letter-spacing: 0.3rem;
+  padding-left: 1.45rem;
+  font-size: 1.3rem;
 }
 
 #digits-error,
@@ -368,35 +373,6 @@ input[type="number"] {
   margin-top: 1rem;
 }
 
-@-webkit-keyframes showBack {
-  0%,
-  100% {
-    opacity: 0;
-  }
-  50% {
-    -webkit-transform: translateY(250px);
-            transform: translateY(250px);
-    opacity: 0.7;
-  }
-}
-
-@keyframes showBack {
-  0%,
-  100% {
-    opacity: 0;
-  }
-  50% {
-    -webkit-transform: translateY(250px);
-            transform: translateY(250px);
-    opacity: 0.7;
-  }
-}
-
-.show-back-card {
-  -webkit-animation: showBack 6s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-          animation: showBack 6s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-}
-
 @-webkit-keyframes fadeBrand {
   0% {
     opacity: 0;
@@ -424,37 +400,6 @@ input[type="number"] {
 .show-brand {
   -webkit-animation: fadeBrand 1s both;
           animation: fadeBrand 1s both;
-}
-
-@-webkit-keyframes glow {
-  0% {
-    -webkit-box-shadow: 0 0 5px #00ff0033;
-            box-shadow: 0 0 5px #00ff0033;
-  }
-  100% {
-    -webkit-box-shadow: 0 0 15px #44cd44cc;
-            box-shadow: 0 0 15px #44cd44cc;
-  }
-}
-
-@keyframes glow {
-  0% {
-    -webkit-box-shadow: 0 0 5px #00ff0033;
-            box-shadow: 0 0 5px #00ff0033;
-  }
-  100% {
-    -webkit-box-shadow: 0 0 15px #44cd44cc;
-            box-shadow: 0 0 15px #44cd44cc;
-  }
-}
-
-button:focus,
-select:focus,
-input:focus {
-  -webkit-transition: all 500ms ease-in-out;
-  transition: all 500ms ease-in-out;
-  -webkit-animation: glow 800ms ease-out infinite alternate;
-          animation: glow 800ms ease-out infinite alternate;
 }
 
 @media screen and (max-width: 400px) {
@@ -501,9 +446,6 @@ input:focus {
     height: 100%;
     width: 20rem;
     border-radius: 1rem;
-    background: #bdc3c7;
-    background: -webkit-gradient(linear, left top, right top, from(#2c3e50), to(#bdc3c7));
-    background: linear-gradient(to right, #2c3e50, #bdc3c7);
   }
   .payment__form__card__front input {
     font-size: 0.7rem;
@@ -520,9 +462,6 @@ input:focus {
   }
   .payment__form__card__front input::placeholder {
     color: inherit;
-  }
-  .payment__form__card__back {
-    width: 20rem;
   }
   #cvv-card-top {
     margin-left: 0;

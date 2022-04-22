@@ -39,7 +39,6 @@
       height: 100%;
       width: 20rem;
       border-radius: 1rem;
-      @include frontCardBg;
       //
       input {
         font-size: 0.7rem;
@@ -50,10 +49,6 @@
         }
       }
       //
-    }
-
-    &__back {
-      width: 20rem;
     }
   }
 
