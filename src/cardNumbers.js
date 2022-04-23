@@ -17,7 +17,8 @@ const uzCard = document.querySelector("#uzcard");
 
 const allCards = [visaCard, masterCard, humoCard, uzCard];
 
-const REGEX_CARDS = ["^4", "^5[1-5]", "^8[6]", "9860"];
+const REGEX_CARDS = ["^4", "^5[1-5]", "^8[6]", "986"];
+const REGEX_NUMBERS = /^(?=.*\d)[\d ]+$/;
 
 const detectCard = (digits) => {
   if (digits.match(REGEX_CARDS[0])) {
@@ -67,6 +68,12 @@ const detectCard = (digits) => {
   }
 };
 
+const detectLetters = (numbers) => {
+  if (!numbers.match(REGEX_NUMBERS)) {
+    cardNumberErr.innerText = "Только цифры - без букв и символо";
+  }
+};
+
 export const checkCardNumbers = () => {
   const move = (next) => {
     cardNumberErr.innerText = "";
@@ -83,14 +90,19 @@ export const checkCardNumbers = () => {
       ? (cardNumberErr.innerText = "Укажите Номер карты!") &&
         (inputNumber.value = "")
       : //
-      cardNumber.value.length === 16 && (inputNumber.value = cardNumber.value)
+      cardNumber.value.length === 22 && (inputNumber.value = cardNumber.value)
       ? move(expMonthTop)
       : //
-      cardNumber.value.length > 16 && (inputNumber.value = cardNumber.value)
-      ? (cardNumberErr.innerText = "Вы набрали более 16 цифр") && disableBtn()
-      : //
-      cardNumber.value.length === 4 && (inputNumber.value = cardNumber.value)
+      cardNumber.value.length === 3 && (inputNumber.value = cardNumber.value)
       ? detectCard(cardNumber.value)
+      : //
+      (cardNumber.value.length === 4 && cardNumber.value !== (" " || "  ")) ||
+        (cardNumber.value.length === 10 &&
+          cardNumber.value !== (" " || "  ")) ||
+        (cardNumber.value.length === 16 && cardNumber.value !== (" " || "  "))
+      ? (cardNumber.value = cardNumber.value + "  ") &&
+        detectLetters(cardNumber.value) &&
+        (inputNumber.value = cardNumber.value)
       : //
         (inputNumber.value = cardNumber.value) &&
         (cardNumberErr.innerText = "");
@@ -106,14 +118,21 @@ export const checkCardNumbers = () => {
         (cardNumber.value = "")
       : //
 
-      inputNumber.value.length === 16 && (cardNumber.value = inputNumber.value)
+      inputNumber.value.length === 22 && (cardNumber.value = inputNumber.value)
       ? move(expMonth)
       : //
-      inputNumber.value.length > 16 && (inputNumber.value = cardNumber.value)
-      ? (cardNumberErr.innerText = "Вы набрали более 16 цифр") && disableBtn()
-      : //
-      inputNumber.value.length === 4 && (cardNumber.value = inputNumber.value)
+
+      //
+      inputNumber.value.length === 3 && (cardNumber.value = inputNumber.value)
       ? detectCard(inputNumber.value)
+      : //
+      (inputNumber.value.length === 4 && inputNumber.value !== (" " || "  ")) ||
+        (inputNumber.value.length === 10 &&
+          inputNumber.value !== (" " || "  ")) ||
+        (inputNumber.value.length === 16 && inputNumber.value !== (" " || "  "))
+      ? (inputNumber.value = inputNumber.value + "  ") &&
+        detectLetters(inputNumber.value) &&
+        (cardNumber.value = inputNumber.value)
       : //
         (cardNumber.value = inputNumber.value) &&
         (cardNumberErr.innerText = "");

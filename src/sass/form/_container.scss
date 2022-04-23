@@ -24,10 +24,6 @@
       padding: 0.8rem;
       margin-bottom: 2rem;
 
-      &:focus {
-        @include boxShadow;
-      }
-
       &:nth-child(5) {
         width: 31%;
         padding: 1.2rem;
@@ -43,9 +39,9 @@
       margin-bottom: 1.3rem;
       font-size: 1rem;
       font-weight: bold;
+
       &:focus {
-        @include boxShadow;
-        background-color: $white;
+        background-color: transparent;
       }
     }
 
@@ -58,14 +54,7 @@
       color: $white;
       font-weight: bold;
       font-size: 1.5rem;
-      border: none;
       @include boxShadow;
-
-      &:focus {
-        background-color: $lightGreen;
-        color: $darkGray;
-        @include boxShadow;
-      }
 
       &:disabled {
         border: 1px solid #999999;
@@ -82,4 +71,22 @@
 #uzcard {
   background-color: transparent;
   display: none;
+}
+
+select:focus,
+input:focus,
+button:focus {
+  border: 0.15rem solid $darkBlue;
+  outline: none;
+
+  @keyframes leaves {
+    0% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  animation: leaves 600ms ease-in-out both;
 }

@@ -14,17 +14,21 @@ const cvvCardTop = document.querySelector("#cvv-card-top");
 const cvvCard = document.querySelector("#cvv-card");
 
 const REGEX_MONTH = /^0[1-9]|1[012]$/;
-const REGEX_YEAR = /20(?:2\d|30)/;
 
 const move = (next, mmyy) => {
   if (mmyy.match(REGEX_MONTH)) {
     next.focus();
     enableBtn();
     expMonthErr.innerText = "";
-  } else if (mmyy.match(REGEX_YEAR)) {
-    next.focus();
-    enableBtn();
+  }
+
+  if (!mmyy.match(REGEX_MONTH)) {
+    disableBtn();
+  }
+  if (mmyy >= 22 && mmyy <= 30) {
     expYearErr.innerText = "";
+    enableBtn();
+    next.focus();
   }
 };
 export const checkCardMonth = () => {
@@ -37,9 +41,10 @@ export const checkCardMonth = () => {
       ? move(expYearTop, expMonthTop.value)
       : //
       expMonthTop.value.length > 2
-      ? (expMonthErr.innerText = "Максимум 2 цифры") &&
-        (expMonth.value = "") &&
-        disableBtn()
+      ? (expMonthTop.value =
+          expMonthTop.value.slice(1) &&
+          (expMonthErr.innerText = "Неверный формат") &&
+          (expMonth.value = ""))
       : //
       expMonthTop.value === ""
       ? (expMonthErr.innerText = "Укажите месяц") &&
@@ -56,9 +61,6 @@ export const checkCardMonth = () => {
       expMonth.value.length === 2 && (expMonthTop.value = expMonth.value)
       ? move(expYear, expMonth.value)
       : //
-      expMonth.value.length > 2
-      ? (expMonthErr.innerText = "Максимум 2 цифры")
-      : //
       expMonth.value === ""
       ? (expMonthErr.innerText = "Укажите месяц")
       : //
@@ -73,17 +75,20 @@ export const checkCardYear = () => {
     expYearTop === expYear
       ? expYearTop.setAttribute("value", e.target.value)
       : //
-      expYearTop.value.length === 4 && (expYear.value = expYearTop.value)
-      ? move(cvvCardTop, expYearTop.value)
+      expYearTop.value.length === 2
+      ? (expYear.value = 20 + expYearTop.value) &&
+        move(cvvCardTop, expYearTop.value)
       : //
-      expYearTop.value.length > 4
-      ? (expYearErr.innerText = "Только 4 цифры") && disableBtn()
+      expYearTop.value.length > 2
+      ? (expYearTop.value = expYearTop.value.slice(0, 2)) &&
+        (expYearErr.innerText = "") &&
+        disableBtn()
       : //
-      expYearTop.value.length < 4
-      ? disableBtn()
+      expYearTop.value !== expYear.value
+      ? (expYearErr.innerText = "Неверный формат")
       : //
-      expYearTop.value === ""
-      ? (expYearErr.innerText = "Укажите год") && (expYear.value = "")
+      expYearTop.value.length < 1
+      ? (expYearErr.innerText = "Укажите год") && disableBtn()
       : //
         (expYear.value = expYearTop.value) && (expYearErr.innerText = "");
   });
@@ -93,7 +98,7 @@ export const checkCardYear = () => {
     !expYearTop === expYear
       ? expYear.setAttribute("value", e.target.value)
       : //
-      expYear.value.length === 4 && (expYearTop.value = expYear.value)
+      expYear.value.length === 4 && (expYearTop.value = expYear.value.slice(-2))
       ? move(cvvCard, expYear.value)
       : //
         (expYearTop.value = expYear.value);
