@@ -195,8 +195,8 @@ button:focus {
 
 .payment__form__card__front input:focus {
   border: 0.05rem solid #fff;
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.3)));
-  background: linear-gradient(rgba(0, 0, 0, 0.3));
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.3)), to(rgba(0, 0, 0, 0.3)));
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
   -webkit-animation: leaves 600ms ease-in-out both;
           animation: leaves 600ms ease-in-out both;
 }
