@@ -1,23 +1,28 @@
-const miniCssExtract = require("mini-css-extract-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
+mode = "development";
+process.env.NODE_ENV === "production" ? (mode = "production") : "development";
 module.exports = {
-  mode: "production",
+  mode: mode,
   entry: "./src/index.js",
-  plugins: [
-    new miniCssExtract(),
-    new HtmlWebpackPlugin({
-      template: "/index.html",
-      inject: "body",
-    }),
-  ],
   output: {
-    filename: "index.js",
+    filename: "[name].js",
     path: path.resolve(__dirname, "dist"),
   },
   module: {
     rules: [
+      {
+        test: /\.(gif|png|jpe?g)$/,
+        type: "asset",
+      },
+      {
+        test: /\.html$/,
+        use: ["html-loader"],
+      },
+
       {
         test: /\.js$/,
         exclude: /node_modules/,
@@ -25,31 +30,29 @@ module.exports = {
           loader: "babel-loader",
         },
       },
-
       {
-        test: /\.scss$/i,
+        test: /\.s?css/i,
         use: [
-          miniCssExtract.loader,
-          "css-loader",
+          MiniCssExtractPlugin.loader,
+          "css-loader?",
           "postcss-loader",
           "sass-loader",
         ],
       },
-      // {
-      //   test: /\.(gif|png|jpe?g)$/,
-      //   type: "asset",
-      // },
-      // {
-      //   test: /\.html$/,
-      //   use: ["html-loader"],
-      // },
-      ,
     ],
   },
 
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: "./public/index.html",
+      inject: "body",
+    }),
+    new CleanWebpackPlugin(),
+    new MiniCssExtractPlugin(),
+  ],
   devtool: "source-map",
-
   devServer: {
     static: "./dist",
+    hot: true,
   },
 };
