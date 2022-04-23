@@ -96,9 +96,10 @@ export const checkCardNumbers = () => {
       cardNumber.value.length === 3 && (inputNumber.value = cardNumber.value)
       ? detectCard(cardNumber.value)
       : //
-      cardNumber.value.length === 4 ||
-        cardNumber.value.length === 10 ||
-        cardNumber.value.length === 16
+      (cardNumber.value.length === 4 && cardNumber.value !== (" " || "  ")) ||
+        (cardNumber.value.length === 10 &&
+          cardNumber.value !== (" " || "  ")) ||
+        (cardNumber.value.length === 16 && cardNumber.value !== (" " || "  "))
       ? (cardNumber.value = cardNumber.value + "  ") &&
         detectLetters(cardNumber.value) &&
         (inputNumber.value = cardNumber.value)
@@ -125,9 +126,10 @@ export const checkCardNumbers = () => {
       inputNumber.value.length === 3 && (cardNumber.value = inputNumber.value)
       ? detectCard(inputNumber.value)
       : //
-      inputNumber.value.length === 4 ||
-        inputNumber.value.length === 10 ||
-        inputNumber.value.length === 16
+      (inputNumber.value.length === 4 && inputNumber.value !== (" " || "  ")) ||
+        (inputNumber.value.length === 10 &&
+          inputNumber.value !== (" " || "  ")) ||
+        (inputNumber.value.length === 16 && inputNumber.value !== (" " || "  "))
       ? (inputNumber.value = inputNumber.value + "  ") &&
         detectLetters(inputNumber.value) &&
         (cardNumber.value = inputNumber.value)

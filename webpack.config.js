@@ -13,7 +13,7 @@ module.exports = {
     }),
   ],
   output: {
-    filename: "[name].js",
+    filename: "index.js",
     path: path.resolve(__dirname, "dist"),
   },
   module: {
@@ -35,16 +35,15 @@ module.exports = {
           "sass-loader",
         ],
       },
-
-      {
-        test: /\.(gif|png|jpe?g)$/,
-        type: "asset",
-      },
+      // {
+      //   test: /\.(gif|png|jpe?g)$/,
+      //   type: "asset",
+      // },
+      // {
+      //   test: /\.html$/,
+      //   use: ["html-loader"],
+      // },
       ,
-      {
-        test: /\.html$/,
-        use: ["html-loader"],
-      },
     ],
   },
 
