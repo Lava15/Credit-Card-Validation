@@ -89,7 +89,7 @@ export const checkCardNumbers = () => {
           (cardNumber.value = cardNumber.value + "  ") &&
           (inputNumber.value = cardNumber.value)) &&
         detectLetters(cardNumber.value)
-      : null;
+      : detectCard(cardNumber.value);
   });
 
   inputNumber.addEventListener("keyup", (e) => {
@@ -99,7 +99,7 @@ export const checkCardNumbers = () => {
       ? (inputNumber.value = inputNumber.value + "  ") &&
         (cardNumber.value = inputNumber.value) &&
         detectLetters(inputNumber.value)
-      : null;
+      : detectCard(inputNumber.value);
   });
 
   cardNumber.addEventListener("input", (e) => {
