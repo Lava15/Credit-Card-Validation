@@ -93,12 +93,12 @@ export const checkCardNumbers = () => {
   });
 
   inputNumber.addEventListener("keyup", (e) => {
-    (e.keyCode !== 8 && cardNumber.value.length === 4) ||
-    cardNumber.value.length === 10 ||
-    cardNumber.value.length === 16
-      ? (cardNumber.value = cardNumber.value + "  ") &&
-        (inputNumber.value = cardNumber.value) &&
-        detectLetters(cardNumber.value)
+    (e.keyCode !== 8 && inputNumber.value.length === 4) ||
+    inputNumber.value.length === 10 ||
+    inputNumber.value.length === 16
+      ? (inputNumber.value = inputNumber.value + "  ") &&
+        (cardNumber.value = inputNumber.value) &&
+        detectLetters(inputNumber.value)
       : null;
   });
 
